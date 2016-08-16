@@ -1,0 +1,20 @@
+div.social{
+    text-align:center;
+    margin:3em 0;
+    h3{
+        font-size:2em;
+        letter-spacing:0.1em;
+        display:inline-block;
+        margin-bottom:0.3em;
+        //margin-right:0.5em;
+        position:relative;
+        top:-2px;
+    }
+    li{
+        display:inline-block;
+        margin:0 1em;
+    }
+    svg{
+        @include size(2em);
+    }
+}

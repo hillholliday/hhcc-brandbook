@@ -1,0 +1,89 @@
+ul.jobs-list{
+    margin-top:3em;
+    li{
+        text-align:center;
+        margin-bottom:2em;
+        overflow:hidden;
+        a{
+            padding:1em;
+            display:block;
+            position:relative;
+            color:$dark;
+            &:before{
+                @extend %hover-lines;
+                z-index:1;
+            }
+            h5,span{
+                position:relative;
+                z-index:2;
+            }
+        }
+        span{
+            margin-top:0.5em;
+            display:block;
+            font-family:$font-body;
+            font-size:2em;
+            font-style:italic;
+        }
+    }
+    ul{
+        margin-top:2em;
+        li{
+            margin-bottom:1em;
+            a{
+                padding:1em;
+            }
+            h5{
+                font-weight:300;
+            }
+        }
+    }
+}
+
+.no-touchevents ul.jobs-list li a:hover{
+    &:before{
+        @extend %hover-lines-hover;
+        @include opacity(0.6);
+    }
+}
+
+@media all and(min-width:500px){
+    ul.jobs-list{
+        @include outer-container();
+        li{
+            @include span-columns(6);
+            @include omega(2n);
+            margin-bottom:4em;
+        }
+        ul li{
+            width:100%;
+            margin-right:0px;
+        }
+    }
+    ul.jobs-list.jobs-list-grouped > li{
+        width:50%;
+        margin-right:0px;
+    }
+}
+
+@media all and(min-width:700px){
+    ul.jobs-list{
+        a{
+            padding:3em;
+        }
+        li{
+            @include omega-reset(2n);
+            @include span-columns(4);
+            @include omega(3n);
+            margin-bottom:5em;
+        }
+        ul li{
+            width:100%;
+            margin-right:0px;
+        }
+    }
+    ul.jobs-list.jobs-list-grouped > li{
+        width:33%;
+        margin-right:0px;
+    }
+}

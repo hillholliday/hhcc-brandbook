@@ -1,0 +1,28 @@
+nav.touch-nav{
+    display:block;
+    background-color:$primary;
+    padding:1em;
+    @include clearfix();
+    svg{
+        display:block;
+        @include size(2em);
+        margin:0 auto;
+        use{
+            fill:$light;
+        }
+    }
+    a{
+        float:left;
+        width:50%;
+        display:block;
+    }
+    a:first-of-type{
+        border-right:1px solid $dark;
+    }
+}
+
+.no-touchevents{
+    nav.touch-nav{
+        display:none;
+    }
+}

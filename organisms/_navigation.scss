@@ -1,0 +1,278 @@
+body.no-scroll{
+    overflow-y:hidden;
+}
+
+.no-touchevents body.no-scroll{
+    padding-right:8px;
+    &:after{
+        @extend %psuedo-content;
+        @include position(fixed, 0px 0px 0px auto);
+        width:14px;
+        background-color:$dark;
+    }
+}
+
+body.nav-open{
+    nav.main-navigation{
+        max-height:100vh;
+    }
+    div.search{
+        opacity:1;
+    }
+}
+
+nav.main-navigation{
+    @include position(fixed, 0px 0px 0px 0px);
+    max-height:0px;
+    overflow:hidden;
+    z-index:8;
+    background-color:rgba($dark,0.8);
+    font-family:$font-body-alt;
+    display:block;
+    text-align:center;
+    @extend %long-transition;
+    @include transition-duration(0.45s);
+    ul{
+        font-size:22px;
+    }
+    ul.navigation{
+        @extend %long-transition;
+    }
+    .block{
+        height:100%;
+    }
+    .block > ul{
+        @extend %absolute-middle;
+        top:23.5%;
+        left:0px;
+        @include transform(none);
+        width:100%;
+        margin:0 auto;
+        li{
+            margin-bottom:1.5em;
+            position:relative;
+            @extend %default-transition;
+        }
+        li.return{
+            display:block;
+            margin:0.75em auto 0px;
+            text-align:center;
+            font-size:0.7em;
+        }
+        & > li{
+            position:relative;
+            & > a:after{
+                content:"";
+                display:block;
+                height:3px;
+                width:90%;
+                background-color:rgba($primary,0);
+                @extend %default-transition;
+                @include position(absolute, auto auto -30px 50%);
+                @include transform(translateX(-50%));
+            }
+            & > a.active{
+                color:$primary;
+                &:after{
+                    background-color:$primary;
+                    @include transform(translateX(-50%) translateY(-20px));
+                }
+            }
+        }
+    }
+    a,
+    a:visited{
+        color:$light;
+        font-weight:100;
+        @extend %default-transition;
+        position:relative;
+        font-family:$font-body-alt;
+    }
+    p.search-error{
+        font-size:24px;
+        a{
+            color:$primary;
+            font-weight:100;
+        }
+    }
+}
+
+@media all and(min-width:800px),(orientation:landscape) {
+    nav.main-navigation{
+        ul{
+            font-size:43px;
+        }
+        .block > ul {
+            width:100%;
+            position:relative;
+            top:35%;
+            margin-bottom:2em;
+            & > li{
+                display:inline-block;
+                margin:0 20px 1em;
+                & > a:after,
+                & > a.active:after{
+                    height:5px;
+                    @include transform(translateX(-50%) translateY(-10px));
+                }
+            }
+        }
+    }
+    .no-touchevents nav.main-navigation{
+        .block > ul > li{
+            &:hover > a{ 
+                color:$primary;
+                &:after{
+                    @include transform(translateX(-50%) translateY(-10px));
+                    background-color:rgba($primary,1);
+                }
+            }
+        }
+    }
+}
+
+div.search{
+    display:none;
+    @include position(relative, 25% auto auto 0px);
+    margin:0 auto;
+    @extend %block;
+    max-width:995px;
+    width:100%;
+    opacity:0;
+    @extend %long-transition;
+    @include transition-delay(0.45s);
+    p{
+        @extend %no-select;
+        @extend %default-transition;
+        text-align:left;
+        color:#fff;
+        font-size:22px;
+        position:relative;
+        top:-20px;
+        svg{
+            opacity:0;
+            @extend %default-transition;
+            position:relative;
+            left:5px;
+            @include animation(spin 1.33s linear infinite);
+            use{
+                fill:$primary;
+            }
+        }
+        &.searching svg{
+            opacity:1;
+        }
+    }
+    input{
+        font-family:$font-body;
+        width:100%;
+        font-size:50px;
+        @include appearance(none);
+        background-color:transparent;
+        border:none;
+        border-bottom:2px solid $light;
+        color:$light;
+        padding-bottom:10px;
+        @include placeholder{
+            color:$light;
+        }
+    }
+}
+
+@media all and(min-width:800px){
+    div.search{
+        display:block;
+    }
+}
+
+nav.main-navigation.search-active{
+    background-color:rgba($dark,0.966);
+    div.search{
+        top:60px;
+        p{
+            opacity:1;
+            top:20px;
+        }
+    }
+    ul.navigation{
+        top:100%;
+        @extend %no-select;
+    }
+    div.search-results{
+        max-height:calc(100vh - 250px);
+        overflow-y:scroll;
+        opacity:1;
+    }
+}
+
+div.search-results{
+    color:#fff;
+    max-width:995px;
+    margin:0 auto;
+    position:relative;
+    top:calc(0% - 30px);
+    max-height:0px;
+    overflow-y:hidden;
+    opacity:0;
+    p a{
+        border-bottom:1px solid rgba($primary,0);
+    }
+    p a{
+        &:hover{
+            color:$light;
+            border-bottom:1px solid $primary;
+        }
+        &:after{
+            content:none;
+        }
+    }
+    @extend %long-transition;
+    /* Let's get this party started */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $primary; 
+    }
+    h3{
+        text-align:left;
+        margin-bottom:35px;
+        font-size:3em;
+    }
+    li{
+        @include clearfix();
+        text-align:left;
+        margin-bottom:20px;
+        position:relative;
+        min-height:35px;
+        span{
+            font-size:2.4em;
+            display:block;
+            width:calc(100% - 60px);
+            float:left;
+            line-height:1.33em;
+            padding-top:8px;
+            font-weight:100;
+            @include flex(1);
+        }
+    }
+    img{
+        @include border-radius(50%);
+        float:left;
+        margin-right:10px;
+        @include size(45px);
+    }
+    div.search-category-container{
+        margin-bottom:45px;
+    }
+}
+
+.no-touchevents div.search-results a{
+    span{
+        @extend %default-transition;
+    }
+    &:hover span{
+        color:$primary;
+    }
+}

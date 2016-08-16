@@ -1,0 +1,10 @@
+.no-touchevents{
+    a[class^="social-"] svg use{
+        @extend %default-transition;
+    }
+    a.social-mail:hover svg use{ fill:$primary; }
+    a.social-twitter:hover svg use { fill: $twitter; }
+    a.social-facebook:hover svg use { fill: $facebook; }
+    a.social-linkedin:hover svg use { fill: $linkedin; }
+    a.social-instagram:hover svg use { fill: $instagram; }
+}

@@ -1,0 +1,114 @@
+.figure-list{
+    @include clearfix();
+    a{
+        color:$dark;
+    }
+    div.news-item{
+        overflow:hidden;
+        margin-bottom:2em;
+        float:left;
+        width:50%;
+    }
+    picture{
+        position:relative;
+        overflow:hidden;
+        height:102%;
+        width:102%;
+        display:block;
+        background-color:$dark;
+        img,srcset{
+            @extend %absolute-middle;
+            @extend %default-transition;
+            width:100%;
+            height:100%;
+            display:block;
+        }
+        &:before{
+            @extend %hover-lines;
+        }
+        &:after{
+            @extend %psuedo-content;
+            padding-top:100%;
+        }
+    }
+    div.desc{
+        display:block;
+        padding:1.5em;
+    }
+    time{
+        margin-top:0.5em;
+        display:block;
+    }
+    h3{
+        letter-spacing:0px;
+        font-size:1.6em;
+        margin-bottom:0.65em;
+    }
+    h4{
+        @extend %default-transition;
+    }
+}
+
+.no-touchevents .figure-list{
+    a:hover{
+        picture:before{
+            @extend %hover-lines-hover;
+        }
+        img,srcset{
+            @include size(110%);
+        }
+        h4{
+            color:$primary;
+        }
+    }
+}
+
+// TODO change to ems
+@media all and(min-width:600px){
+    .figure-list{
+        div.desc{
+            padding:2em 2.5em;
+        }
+    }
+}
+
+// TODO change to ems
+@media all and(min-width:800px){
+    .figure-list{
+        div.news-item{
+            float:left;
+            width:25%;
+        }
+    }
+}
+
+.flexbox{
+    .figure-list{
+        div.flex-row{
+            width:100%;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            @include flex-flow(row wrap);
+            justify-content: center;
+        }
+        picture{
+            width:auto;
+            height:auto;
+        }
+        div.news-item{
+            display:block;
+        }
+    }
+}
+
+@media all and(min-width:600px){
+    .flexbox .figure-list{
+        div.news-item{
+            margin-bottom:4em;
+        }
+    }
+}

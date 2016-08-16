@@ -1,0 +1,102 @@
+@import "compass/reset";
+
+@import "partials/*";
+@import "atoms/*";
+@import "molecules/*";
+@import "organisms/*";
+@import "pages/*";
+
+main.main-content{
+    @extend %long-transition;
+    @include transform(translate3d(0,0,0) translateY(0%));
+    position:relative;
+    top:0px;
+    opacity:1;
+}
+
+body.no-scroll main.main-content{
+    @include transform(none);
+}
+
+body.no-scroll.nav-open main.main-content{
+    @include transform(translate3d(0,0,0) translateY(0%));
+}
+
+body.page-transition,
+body.no-scroll.nav-open.page-transition{
+    background-color:$dark;
+    cursor: none;
+    *{
+        pointer-events: none;
+    }
+    main.main-content{
+        @include transform(translate3d(0,0,0) translateY(2.5%));
+        opacity:0;
+    }
+    footer.main-footer{
+        display:none;
+        @include transition-delay(0.8s);
+    }
+}
+
+
+body.login{
+    color:$light;
+    background-color:$dark;
+    fieldset{
+        position:relative;
+    }
+    input:-webkit-autofill {
+        -webkit-box-shadow: -1px -1px 0px 1000px $dark inset;
+        -webkit-text-fill-color: $light;
+    }
+    input{
+        z-index:-1;
+        color:$light;
+        font-size:1.5em;
+    }
+    svg.logo{
+        display:block;
+        width:90%;
+        max-width:350px;
+        margin:0 auto 5em;
+        path{
+            fill:$primary;
+        }
+        g.text path{
+            fill:$light;
+        }
+    }
+    section{
+        max-width:400px;
+        margin:3em auto;
+        padding:1em;
+    }
+    input[type="submit"]{
+        margin-top:0em;
+        background-color:$primary;
+        padding:0.5em 1.5em 0.6em;
+        color:$light;
+        font-size:1em;
+        & + p{
+            font-size:1.5em;
+            text-align:center;
+            margin-top:1.5em;
+            color:$error;
+        }
+    }
+}
+
+@media all and(min-height:600px){
+    body.login{
+        position:relative;
+        section.login{
+            margin:1em;
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%));
+        }
+        input[type="submit"]{
+            margin-top:1em;
+        }
+    }
+}

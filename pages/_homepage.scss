@@ -1,0 +1,187 @@
+main.main-content.home-page{
+    @include transform(none);
+}
+
+.touchevents main.main-content.home-page iframe{
+    display:none;
+}
+
+section.homepage-hero{
+    height:100vh;
+    position:relative;
+    z-index: 2;
+    overflow:hidden;
+    background-size:cover;
+    background-position:center;
+    div.content{
+        @extend %absolute-middle;
+        @extend %long-transition;
+        z-index:3;
+        color:#fff;
+        width:80%;
+        padding:10px;
+        text-align:center;
+    }
+    iframe{
+        @include position(absolute, -10% auto auto -10%);
+        width:120%;
+        height:120%;
+    }
+    h1{
+        position:relative;
+        width:100%;
+        left:0.25em;
+        top:80px;
+        @extend %default-transition;
+        font-size:4.3em;
+        margin-bottom:30px;
+    }
+    p,a.cta{
+        display:inline-block;
+        position:relative;
+        top:40px;
+        opacity:0;
+        @extend %default-transition;
+    }
+    a.cta{
+        @include transition-delay(0.4s);
+    }
+    &.active div.content{
+        h1{
+            top:0px;
+        }
+        p,a.cta{
+            top:0px;
+            opacity:1;
+        }
+    }
+    p{
+        font-size:22px;
+        display:block;
+        margin:30px 10px;
+        @include transition-delay(0.2s);
+    }
+    p:last-of-type{
+        margin:-15px 10px 30px;
+    }
+}
+
+@media all and(min-width:370px){
+    section.homepage-hero{
+        h1{
+            font-size:5.4em;
+        }
+    }
+}
+
+@media all and(min-width:800px){
+    section.homepage-hero{
+        h1{
+            font-size:9.2em;
+        }
+    }
+}
+
+section.homepage-block{
+    min-height:40px;
+    padding:6em 0px;
+    background-color:$light;
+    position:relative;
+    div.figure-list,
+    ul.jobs-list{
+        margin-top:6em;
+    }
+    h2{
+        margin-left:0.7em;
+    }
+    h2 span:last-of-type{
+        margin-left:0.75em;
+    }
+    &.dark{
+        background-color: $dark;
+        color:#fff;
+        svg use,
+        fill,
+        rect{
+            fill:#fff;
+        }
+        a{
+            color:$light;
+        }
+    }
+    h2{
+        text-align:center;
+    }
+    a.more{
+       margin:1em auto;
+       display:block;
+       text-align:center;
+    }
+}
+
+//TODO change to ems
+@media all and(min-width:800px){
+    section.homepage-block{
+        a.more{
+            @include position(absolute, 3em 1em auto auto);
+        }
+    }
+}
+
+.user-interacted section.manifesto iframe{
+    position:absolute;
+}
+
+section.manifesto{
+    min-height:100vh;
+    display:block;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+    iframe{
+        @include position(fixed, -10vh auto auto -10vw);
+        height:120vh;
+        width:120vw;
+        z-index:-1;
+    }
+    div.content{
+        min-height:100vh ;
+        background-color:rgba($light,0.8);
+        & > div{
+            //@extend %absolute-middle;
+            width:100%;
+            max-width:72em;
+            padding:4em 1em;
+            margin:0 auto;
+            text-align:center;
+        }
+        a.cta{
+            display:block;
+            width:220px;
+            margin:0 auto;
+        }
+    }
+    h2{
+        padding-left:0.25em;
+        margin-bottom:0.5em;
+        font-size:2.8em; 
+        text-align:center;  
+    }
+    p{
+        margin-bottom:1em;
+        line-height:1.291666667;
+        font-size:2.4em;
+    }
+}
+
+@media all and(min-width:880px){
+    section.manifesto{
+        div.content > div{
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%));
+        }
+        h2{
+            font-size:5em;
+        }
+    }
+}

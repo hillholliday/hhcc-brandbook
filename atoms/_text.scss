@@ -1,0 +1,270 @@
+body{
+    font-size:10px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    a{
+        color:$primary;
+    }
+}
+
+h1,h2,h3{
+    font-family:$font-headline;
+    letter-spacing:0.5em;
+    span{
+        display:inline-block;
+    }
+    img{
+        height:1em;
+        position:relative;
+        top:0.1em;
+        margin-right:0.5em;
+    }
+}
+
+h4,h5,h6{
+    font-family:$font-body-alt;
+    font-weight:700;
+    line-height:1.291666667;
+}
+
+h1{
+    font-size:3em;
+}
+
+h2{
+    font-size:2.4em;
+}
+
+h3{
+    font-size:2em;
+}
+
+h4{
+    font-size:1.8em;
+}
+
+h5{
+    font-size:1.8em;
+}
+
+h6{
+    text-transform: uppercase;
+    font-size:1.8em;
+}
+
+h2.headline{
+    padding:2em 10px;
+    text-align:center;
+}
+
+@media all and(min-width:700px){
+    padding:4em 10px;
+}
+
+h4.heading-divider{
+    text-align:center;
+    position:relative;
+    padding:2em 0px;
+    span{
+        padding:0.2em 0.4em;
+        background-color:$light;
+        position:relative;
+        z-index:2;
+    }
+    &:after{
+        @extend %psuedo-content;
+        @extend %absolute-middle;
+        width:100%;
+        height:1px;
+        background-color:$accent;
+        z-index:1;
+    }
+}
+
+//TODO fix to rems later
+@media all and(min-width:800px){
+    h1{
+        font-size:5.35em;
+    }
+    h2{
+        font-size:4.5em;
+    }
+    h3{
+        font-size:3.5em;
+    }
+    h4{
+        font-size:2.4em;
+    }
+    h5,h6{
+        font-size:2.2em;
+    }
+}
+
+p,
+%text-design{
+    font-family:$font-body;
+    font-weight:300;
+    font-size: 2em;
+    line-height:1.33;
+    margin-bottom:1em;
+    &:last-child{
+        margin-bottom:0px;
+    }
+    a{
+        color:$primary;
+    }
+    svg{
+        @include size(1.33em);
+        position:relative;
+        top:0.33em;
+        use{
+            fill:$light;
+        }
+        &.dark use{
+            fill:$dark;
+        }
+    }
+    strong{
+        font-family:$font-body-alt;
+    }
+    small,abbr{
+        font-size:0.9em;
+        font-variant: small-caps;
+    }
+    kbd{
+        font-variant: small-caps;
+        padding:0 4px;
+        display:inline-block;
+        border:1px solid darken($accent,20%);
+        color:darken($accent,50%);
+        @include border-radius(4px);
+    }
+    mark{
+        padding:0.1em 0.5em;
+        display:inline-block;
+        background-color:rgba($primary,0.3);
+    }
+    cite,dfn,q{
+        font-style:italic;
+    }
+    cite{
+        &:before{
+            content:"— ";
+        }
+    }
+}
+
+p a{
+    position:relative;
+    z-index:1;
+    display:inline-block;
+    @extend %default-transition;
+    &:after{
+        @extend %psuedo-content;
+        @include position(absolute, auto 0px 1px 0px);
+        height:0px;
+        width:100%;
+        background-color:$primary;
+        @extend %default-transition;
+        @include transition-duration(0.15s);
+    }
+}
+
+.no-touchevents p a:hover{
+    color:$light;
+    &:after{
+        height:calc(1em + 11px);
+        z-index:-1;
+        width:calc(100% + 1em);
+        bottom:-2px;
+        left:-0.5em;
+        @include transform(skewX(-11deg))
+    }
+}
+
+sup{
+    font-size:0.65em;
+    position:relative;
+    top:-0.35em;
+}
+
+sub{
+    font-size:0.65em;
+    position:relative;
+    top:0.35em;
+}
+
+time{
+    font-size:2em;
+    font-family:$font-body;
+    font-style:italic;
+    display:block;
+}
+
+code,var,samp{
+    font-family:$font-code;
+    font-size:0.8em;
+    letter-spacing:0.08em;
+    color:$light;
+    background-color:$dark;
+    padding:4px 8px 4px 10px;
+    display:inline-block;
+}
+
+
+div.text,
+section.content{
+    padding:0 1em;
+    ol,
+    ul{
+        margin-bottom:2em;
+    }
+    & > ul > li,
+    & > ol > li{
+        font-size:2em;
+        font-family:$font-body;
+        margin-bottom:1em;
+        line-height:1.275;
+        p{
+            font-size:1em;
+        }
+        &:last-child{
+            margin-bottom:0px;
+        }
+        a{
+            color:$primary;
+        }
+        & > ul > li,
+        & > ol li{
+            font-size:1em;
+        }
+    }
+    & > ul li,
+    & > ol li{
+        margin-left:1em;
+    }
+    ul li{
+        list-style-type:disc;
+    }
+    ol li{
+        list-style-type:lower-roman;
+    }
+    &.large-intro{
+        width:auto;
+        margin-bottom:4em;
+        padding:3em 1em;
+        p:first-child{
+            font-size:2.5em;
+        }
+    }
+}
+
+section.content{
+    @extend %block;
+    max-width:$block-text;
+    li{
+        @extend %text-design;
+        margin-bottom:0.33em;
+    }
+}

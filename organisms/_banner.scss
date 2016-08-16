@@ -1,0 +1,225 @@
+///////////////////
+// Default Banner
+///////////////////
+header.banner{
+    width:100%;
+    position:relative;
+    text-align:center;
+    overflow:hidden;
+    background-size:cover;
+    background-position:center;
+    @include transition(all 0.6s ease-in-out);
+    padding:6em 0px 4em;
+    &:after{
+        @extend %psuedo-content;
+    }
+    .video-wrapper{
+        max-height:0px;
+        overflow:hidden;
+        @include transition(all 0.6s ease-in-out);
+    }
+    .block{
+        position:relative;
+        z-index:2;
+    }
+    h1{
+        width:100%;
+        max-width:1200px;
+        margin-bottom:0.33em;
+        padding-left:0.5em;
+        line-height:1.2;
+        text-align:center;
+        svg{
+            margin:0 auto;
+            width:60%;
+            max-width:400px;
+            max-height:200px;
+            max-height:25vh;
+            polygon,rect,path,circle,polyline{
+                fill:$light;
+            }
+        }
+    }
+    p{
+        width:100%;
+        max-width:700px;
+        margin:0 auto;
+        padding:0 1em;
+        span{
+            margin-left:1em;
+            padding:2px 0 4px 1em;
+            border-left:1px solid $primary;
+        }
+    }
+    p + p:not(.banner-cta){
+        margin-top:1em;
+    }
+    p.banner-cta{
+        margin-top:0.5em;
+        font-family:$font-headline;
+        cursor:pointer;
+        @extend %default-transition;
+        button{
+            margin-left:0.25em;
+            svg use{
+                fill:$dark;
+            }
+        }
+    }
+    &.video-active .video-wrapper{
+        max-height:100%;
+        div{
+            opacity:1;
+            pointer-events:auto;
+            position:absolute;
+        }
+    }
+}
+
+.touchevents{
+    header.banner{
+        p.banner-cta{
+            display:none;
+        }
+        .video-wrapper{
+            max-height:100%;
+            overflow:visible;
+            @include position(relative,auto auto -4em 0px);
+            z-index:2;
+            width:100%;
+            div{
+                opacity:1;
+                position:static;
+                pointer-events:auto;
+            }
+        }
+    }
+}
+
+.no-touchevents header.banner{
+    p.banner-cta:hover{
+        color:$primary;
+        svg use{
+            fill:$primary;
+        }
+    }
+}
+
+header.banner.banner-dark{
+    background-color:$dark;
+    color:$light;
+    p.banner-cta button{
+        svg use{
+            fill:$light;
+        }
+    }
+}
+
+header.banner.banner-light{
+    background-color:$light;
+    color:$dark;
+    div.layer-tint.active{
+        background-color:rgba($light,0.8);
+    }
+}
+
+
+@media all and(min-width:600px){
+    header.banner{
+        padding:0px;
+        .block{
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%));
+        }
+        &:after{
+            padding-top:33%;
+        }
+    }
+}
+
+@media all and(min-width:900px){
+    header.banner h1{
+        margin:0 auto 0.33em;
+    }
+}
+
+///////////////////
+// People banner
+///////////////////
+header.banner.people-banner{
+    margin:4em 0 1em;
+    padding:0 10px;
+    background-color:transparent;
+    &:after{
+        content:none;
+    }
+    .block{
+        position:static;
+        @include transform(translateX(0px) translateY(0px));
+    }
+    div.headshot{
+        @include border-radius(50%);
+        width:100%;
+        max-width:250px;
+        margin:0 auto -4em;
+        overflow:hidden;
+        position:relative;
+        &:before{
+            @extend %psuedo-content;
+            padding-top:100%;
+        }
+        &:after{
+            @extend %psuedo-content;
+            @include linear-gradient(0deg, rgba($light,0.5) 0%, rgba($light,0) 50%);
+            background-color:transparent;
+            @include position(absolute, 0px 0px 0px 0px);
+            z-index:1;
+            border-radius:50%;
+        }
+    }
+    img{
+        @extend %absolute-middle;
+        width:100%;
+    }
+    h2,p{
+        position:relative;
+        z-index:2;
+    }
+    p{
+        font-style:italic;
+    }
+    h2{
+        max-width:100%;
+        padding:0 0 0.2em 0.5em;
+    }
+}
+
+@media all and(min-width:600px){
+    header.banner.people-banner{
+        margin:6em 0 3em;
+        img{
+            max-width:375px;
+        }
+    }
+}
+
+@media all and(min-width:1200px){
+    header.banner.people-banner{
+        margin:6em 0 4em;
+        padding:0px;
+    }
+}
+
+@media all and(min-width:700px){
+    main.main-content.work-page,
+    main.main-content.case-study,
+    main.main-content.culture-page,
+    main.main-content.news-page,
+    main.main-content.about-page,
+    main.main-content.careers-page,
+    main.main-content.contact-page{
+        header.banner:after{
+            padding-top:40%;
+        }
+    }
+}

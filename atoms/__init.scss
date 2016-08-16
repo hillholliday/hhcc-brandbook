@@ -1,0 +1,96 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background-color:$dark;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba($primary,1); 
+}
+
+// ::-webkit-scrollbar-thumb:window-inactive {
+//     background: rgba($primary,0); 
+// }
+
+/* Mozilla based browsers */
+::-moz-selection {
+       background-color: $primary;
+       color: $light;
+}
+
+/* Works in Safari */
+::selection {
+       background-color: $primary;
+       color: $light;
+}
+
+*{
+    @include box-sizing(border-box);
+}
+
+.block{
+    @extend %block;
+    @include clearfix;
+}
+
+.disable-hover{
+    pointer-events:none;
+}
+
+b,strong{
+    font-weight:700;
+}
+
+i,em{
+    font-style:italic;
+}
+
+a{
+    text-decoration: none;
+}
+
+input,button{
+    @include appearance(none);
+}
+
+input:focus, textarea:focus,button,input[type="submit"]{
+    outline:none;
+}
+
+button,input[type="submit"]{
+    cursor:pointer;
+}
+
+body,html{
+    display:block;
+    height:100%;
+}
+
+body{
+    background-color:transparent;
+    @include transition(background-color 0.7s linear);
+    //@include transform(translate3d(0,0,0));
+    font-size:62.5%;
+    position:relative;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+    opacity:0;
+}
+
+p{
+    font-weight:100;
+}
+
+.wf-active{
+    h1,h2,h3,h4,h5,h6,p,span{
+        opacity:1;
+    }
+}

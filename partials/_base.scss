@@ -1,0 +1,145 @@
+/*//////////////////////////////////////
+//  imports
+//////////////////////////////////////*/
+@import "compass/css3";
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+@font-face{
+    font-family:"Prohibition W00 Round";
+    src:url("/fonts/49ecb580-598c-4d00-be58-a3eb48db3c91.eot?#iefix");
+    src:url("/fonts/49ecb580-598c-4d00-be58-a3eb48db3c91.eot?#iefix") format("eot"),url("/fonts/eab2ae6f-bb8e-4db1-8efc-f156ac0cb924.woff2") format("woff2"),url("/fonts/90d54167-43a6-46ca-b2b6-e252d4656f5f.woff") format("woff"),url("/fonts/1a6bb301-2cbb-472b-a581-7946447b8353.ttf") format("truetype"),url("/fonts/a3df9ce6-8854-4ac3-ba85-a48a72997325.svg#a3df9ce6-8854-4ac3-ba85-a48a72997325") format("svg");
+}
+
+/*//////////////////////////////////////
+//  colors
+//////////////////////////////////////*/
+
+$facebook:  #3c5290;
+$twitter:   #469aea;
+$instagram: #b63cb3;
+$linkedin:  #3574af;
+$googleplus:#FC1327;
+$pinterest: #D20010;
+$evernote:  #58BD2F;
+$behance:   #005CFF;
+$tumblr:    #1E4865;
+$digg:      #2F75AE;
+$dribbble:  #FF3488;
+$vimeo:     #00BFFF;
+$youtube:   #FF0000;
+$blogger:   #FF2F00;
+
+$dark:#222222;
+$accent:#f6f6f6;
+$light:#ffffff;
+$primary:#8ec448;
+$error: #FF6969;
+
+/*//////////////////////////////////////
+//  fonts
+//////////////////////////////////////*/
+$font-sans: helvetica;
+$font-serif: georgia;
+
+$font-headline: "Prohibition W00 Round", $helvetica;
+$font-body-alt: "ltc-bodoni-175", georgia, serif;
+$font-body: "bodoni-urw", georgia, serif;
+$font-code:"Source Sans pro",monospace;
+
+/*//////////////////////////////////////
+//  extension on skeleton
+//////////////////////////////////////*/
+$grid-columns: 12;
+$width:1200px;
+$max-width:1200px;
+$block-text:815px;
+
+/*//////////////////////////////////////
+//  mixins
+//////////////////////////////////////*/
+@mixin input-placeholder {
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+
+/*//////////////////////////////////////
+//  silent classes
+//////////////////////////////////////*/
+
+%block{
+    max-width:$width;
+    width:100%;
+    margin:0 auto;
+    display:block;
+}
+
+%marpad{
+    padding:0;
+    margin:0;
+}
+
+%no-select{
+    opacity:0;
+    pointer-events:none;
+}
+
+%cover{
+    background-size: cover;
+    -ms-behavior: url(/js/vendor/backgroundsize.min.htc);
+}
+
+%default-transition{
+    @include transition(all .3s ease-in-out);
+}
+
+%long-transition{
+    @include transition(all .7s ease-in-out);
+}
+
+%middle{
+    @include position(relative, 50% auto auto auto);
+    @include transform(translateY(-50%));
+}
+
+%absolute-middle{
+    @include position(absolute, 50% auto auto 50%);
+    @include transform(translateY(-50%) translateX(-50%));
+}
+
+%hide-text{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+%opacity0{
+    opacity:0;
+}
+
+%opacity1{
+    opacity:1;
+}
+
+%psuedo-content{
+    content:" ";
+    display:block;
+}
+
+%hover-lines{
+    @extend %psuedo-content;
+    @extend %default-transition;
+    @include position(absolute, 0px 0px 0px 0px);
+    @include transform(scale(2));
+    z-index:4;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSJ0cmFuc3BhcmVudCI+PC9yZWN0Pgo8cGF0aCBkPSJNMCA1TDUgMFpNNiA0TDQgNlpNLTEgMUwxIC0xWiIgc3Ryb2tlPSIjOENDNjNFIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+");
+    background-size:5px;
+    opacity:0;
+}
+
+%hover-lines-hover{
+    @include transform(scale(1));
+    opacity:1;
+}

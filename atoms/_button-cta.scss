@@ -1,0 +1,67 @@
+button.cta,
+a.cta,
+input[type="button"]{
+    @include appearance(none);
+    background-color:transparent;
+    font-size:18px;
+    color:$light;
+    border:2px solid;
+    padding:0.75em 2em 0.95em;
+    font-family:$font-headline;
+    text-transform: uppercase;
+    position:relative;
+    overflow:hidden;
+    letter-spacing:0.1em;
+    @extend %default-transition;
+    display:inline-block;
+    span{
+        position:relative;
+        line-height:1.2;
+        z-index:2;
+        margin-top:-1px;
+        @extend %default-transition;
+    }
+    &:before,
+    &:after{
+        content:" ";
+        display:block;
+        width:500px;
+        height: 70px;
+        background-color:$primary;
+        @include transform(rotate(4deg));
+        @include position(absolute, 160% auto auto -10px);
+        z-index:1;
+        @extend %default-transition;
+    }
+    &:before{
+        @include transform(rotate(4deg));
+        @include position(absolute, -160% auto auto -4px);
+    }
+    &.dark{
+        color:$dark;
+    }
+
+    &.dark.filled{
+        color:$light;
+        background-color:$dark;
+        border-color:$dark;
+        &:hover{
+            border-color:$primary;
+        }
+    }
+}
+
+.no-touchevents{
+    button.cta,
+    a.cta{
+        &:hover{
+            border-color:$primary;
+            &:before{
+                top:-65%;
+            }
+            &:after{
+                top:65%;
+            }
+        }
+    }
+}

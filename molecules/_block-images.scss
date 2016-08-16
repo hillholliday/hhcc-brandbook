@@ -1,0 +1,115 @@
+// block width settings
+section.full-width{
+    max-width:100%;
+}
+section.center-width{
+    max-width:$max-width;
+    margin:0 auto;
+}
+
+// images block
+section.images-block,
+section.videos-block,
+section.stats-block{
+    ul{
+        @include clearfix();
+    }
+    ul li{
+        display:block;
+        position:relative;
+        background-size:cover;
+        background-position:center;
+        overflow:hidden;
+        width:100%;
+    }
+}
+
+section.images-block{
+    ul li{
+        a{
+            @include position(absolute, 0px 0px 0px 0px);
+        }
+        &:after{
+            @extend %psuedo-content;
+            padding-top:75%;
+        }
+    }
+}
+
+// images 2 up
+@media all and(min-width:600px){
+    section.two-up{
+        ul li{
+            width:50%;
+            float:left;
+        }
+    }
+}
+
+// images 3 up
+@media all and(min-width:600px){
+    section.three-up{
+        ul li{
+            width:33.33%;
+            float:left;
+        }
+    }
+}
+
+// image one wide
+section.image-block{
+    margin-bottom:-2px;
+    line-height:0px;
+    position:relative;
+    img{ 
+        width:100%; 
+        @extend %default-transition;
+        position:relative;
+        z-index:1;
+    }
+}
+
+section.image-block,
+section.images-block{
+    a{
+        display:block;
+        position:relative;
+        z-index:2;
+        overflow:hidden;
+        svg{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-40px;
+            margin-top:-40px;
+            @extend %default-transition;
+            z-index:4;
+            @include size(80px);
+            use{
+                fill:$light;
+            }
+        }
+        &:before{
+            @extend %psuedo-content;
+            background-color:rgba($dark,0.66);
+            @include position(absolute, 0px 0px 0px 0px);
+            z-index:2;
+        }
+        &:after{
+            @extend %hover-lines;
+            z-index:3;
+        }
+    }
+}
+
+.no-touchevents section.image-block a:hover,
+.no-touchevents section.images-block a:hover{
+    svg{
+        @include size(160px);
+        margin-top:-80px;
+        margin-left:-80px;
+    }
+    &:after{
+        @extend %hover-lines-hover;
+    }
+}

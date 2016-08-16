@@ -1,0 +1,36 @@
+// rich text block
+section.richtext-block{
+    padding:2em 10px;
+    .text-left{
+        text-align:left;
+    }
+    .text-right{
+        text-align:right;
+    }
+    .text-center{
+        text-align:center;
+    }
+    h1,h2,h3,h4,h5,h6{
+        margin-bottom:0.5em;
+    }
+}
+
+@media all and(min-width:800px){
+    section.richtext-block{
+        padding:4em 0px;
+    }
+    section.richtext-block.text-two-column{
+        @include column-count(2);
+        @include column-gap(2em);
+    }
+    section.richtext-block.text-three-column{
+        @include column-count(3);
+        @include column-gap(3em);
+    }
+}
+
+@media all and(min-width:900px){
+    section.richtext-block{
+        padding:6em 0px 7em;
+    }
+}

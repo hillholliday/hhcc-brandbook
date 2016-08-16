@@ -1,0 +1,39 @@
+section.project-banner{
+    padding:2em 1em;
+    text-align:center;
+    div.block{
+        @include outer-container();
+        max-width:$block-text;
+    }
+    div.block > div{
+        padding:2em;
+    }
+    h4{
+        margin-bottom:0.5em;
+        padding-bottom:0.5em;
+        position:relative;
+        &:after{
+            @extend %psuedo-content;
+            width:30px;
+            height:1px;
+            background-color:$primary;
+            @include position(absolute, auto auto 0px 50%);
+            @include transform(translateX(-50%));
+        }
+    }
+}
+
+section.project-banner.dark{
+    background-color:lighten($dark,4%);
+    color:$light;
+}
+
+@media all and(min-width:800px){
+    section.project-banner{
+        padding:6em 1em 8em;
+        div.block > div{
+            @include span-columns(4);
+            padding:0em;
+        }
+    }
+}

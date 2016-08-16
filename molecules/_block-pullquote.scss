@@ -1,0 +1,62 @@
+// pullquote
+section.pullquote-block{
+    padding:4em 10px;
+    text-align:center;
+    position:relative;
+    font-family:$font-serif;
+    &:after{
+        @extend %hover-lines;
+        @extend %hover-lines-hover;
+        @include opacity(0.33);
+        z-index:1;
+    }
+    blockquote{
+        position:relative;
+        z-index:2;
+    }
+    p{
+        font-style:italic;
+        font-size:3em;
+        margin-bottom:0.66em;
+    }
+    cite{
+        line-height:1.33;
+        font-size:2.33em;
+        font-weight:700;
+        display:block;
+        max-width:600px;
+        margin:0 auto 0.33em;
+    }
+    span{
+        font-size:1.8em;
+    }
+    &.quote-small p{
+        font-size:1.8em;
+    }
+    &.quote-medium p{
+        font-size:2.2em;
+    }
+    &.quote-large p{
+        font-size:3em
+    }
+}
+
+@media all and(min-width:700px){
+    section.pullquote-block{
+        padding:7em 10px 8em;
+        &.quote-small p{
+            font-size:2.4em;
+        }
+        &.quote-medium p{
+            font-size:3em;
+        }
+        &.quote-large p{
+            font-size:4em;
+        }
+    }
+}
+
+section.pullquote-block.dark{
+    background-color:$dark;
+    color:$light;
+}

@@ -1,0 +1,95 @@
+section.leadership-list{
+    text-align:center;
+    a{
+        color:$dark;
+    }
+    li{
+        border-bottom:3px solid $accent;
+        margin-bottom:2em;
+        padding-bottom:3em;
+    }
+    a.more{
+        display:block;
+        font-size:2.5em;
+        margin:2em 10px 4em;
+    }
+    header.banner.people-banner div.headshot{
+        margin-bottom:-2em;
+    }
+}
+
+@media all and(min-width:600px){
+    section.leadership-list{
+        ul{
+            @include outer-container();
+            max-width:100%;
+            border-top:1px solid #e9e9e9;
+        }
+        li{
+            width:50%;
+            float:left;
+            display:inline-block;
+            border-bottom:0px;
+            //box-shadow:0 0 1px #e9e9e9 inset;
+            border:1px solid #e9e9e9;
+            border-right:none;
+            border-top:none;
+            margin-bottom:0px;
+            padding-bottom:0px;
+            position:relative;
+            &:last-child{
+                border-right:1px solid #e9e9e9;
+                padding-right:2px;
+            }
+            &:after{
+                content:" ";
+                display:block;
+                padding-top:100%;
+            }
+            a > div{
+                width:calc(100% - 10px);
+                @include position(absolute, 50% auto auto 50%);
+                @include transform(translateX(-50%) translateY(-50%));
+            }
+            h2{
+                font-size:3em;
+                letter-spacing:0.15em;
+            }
+        }
+        header.banner.people-banner{
+            margin:0px;
+            div.headshot{
+                margin-bottom:-2em;
+            }
+        }
+    }
+}
+
+@media all and(min-width:800px){
+    section.leadership-list{
+        li{
+            width:33.33%;
+        }
+    }
+}
+
+@media all and(min-width:1400px){
+    section.leadership-list{
+        li{
+            width:25%;
+        }
+    }
+}
+
+
+
+.no-touchevents section.leadership-list a{
+    h2,p{
+        @extend %default-transition;
+    }
+    &:hover{
+        h2,p{
+            color:$primary;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+.client-page{
+    .client-projects{
+        background-color:$dark;
+        @include clearfix();
+    }
+}

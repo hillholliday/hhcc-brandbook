@@ -1,0 +1,21 @@
+// caption settings
+section.with-caption{
+    span{
+        font-family:$font-serif;
+        color:$light;
+        font-style:italic;
+        font-size:2em;
+        font-weight:100;
+        text-align:center;
+        @include position(absolute, auto 1em 1em 1em);
+        z-index:3;
+    }
+}
+
+@media all and(min-width:800px){
+    section.with-caption span{
+        right:2em;
+        bottom:2em;
+        left:2em;
+    }
+}

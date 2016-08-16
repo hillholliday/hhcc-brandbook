@@ -1,0 +1,106 @@
+section.info-banner{
+    margin:0 0 3em 0;
+    header{
+        width:100%;
+        position:relative;
+        background-size:cover;
+        background-position:center;
+        &:after{
+            @extend %psuedo-content;
+            padding-top:39.5833333%;
+        }
+        h3{
+            @extend %absolute-middle;
+            padding:0.5em 0.35em 0.7em 1em;
+            background-color:$light;
+            white-space:nowrap;
+        }
+    }
+    div.body{
+        padding:3em 1em;
+        display:block;
+        h1,h2,h3,h4,h5,h6{
+            margin-bottom:0.5em;
+            max-width:85%;
+        }
+    }
+    div.more-info{
+        display:block;
+        margin-top:4em;
+        ol{
+            font-style:italic;
+            li{
+                display:block;
+                margin-bottom:0.5em;
+            }
+        }
+    }
+    div.downloads{
+        font-size:2em;
+        font-family:$font-headline;
+        text-align:center;
+        a{
+            color:$dark;
+        }
+        svg{
+            @include size(1.5em);
+            position:relative;
+            top:0.25em;
+        }
+        li{
+            display:inline-block;
+            padding:1em;
+            letter-spacing:0.1em;
+        }
+    }
+}
+
+@media all and(min-width:900px){
+    section.info-banner{
+        @include clearfix();
+        & > div{
+            width:50%;
+            float:left;
+        }
+        div.body{
+            padding:4em 3em;
+            width:100%;
+            max-width:($width / 2);
+        }
+        & > div:first-of-type{
+            div.body{
+                float:right;
+            }
+        }
+        & > div.last-of-type{
+            div.body{
+                float:left;
+            }
+        }
+        div.deadline{
+            float:left;
+        }
+        div.downloads{
+            float:right;
+            svg{
+                @include size(1.75em);
+                top:0.5em;
+            }
+            li{
+                display:block;
+                padding:0.75em 1em;
+            }
+        }
+    }
+}
+
+.no-touchevents section.info-banner div.downloads a{
+    @extend %default-transition;
+    svg use{
+        @extend %default-transition;
+    }
+    &:hover{
+        color:$primary;
+        svg use{fill:$primary;}
+    }
+}

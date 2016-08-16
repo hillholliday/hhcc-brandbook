@@ -1,0 +1,8 @@
+section.pinned-bg{
+    background-size:cover;
+    background-position:center;
+}
+
+.no-touchevents section.pinned-bg{
+    background-attachment: fixed;
+}

@@ -1,0 +1,91 @@
+header.main-header{
+    @include position(fixed, 0px 0px auto 0px);
+    @extend %long-transition;
+    z-index:9;
+    div.logo{
+        max-width:200px;
+        overflow:hidden;
+        @extend %default-transition;
+        position:relative;
+        position:relative;
+        top:1.5em;
+        left:0px;
+        svg{
+            width:200px;
+            height:36px;
+            position:relative;
+            left:0px;
+            @extend %default-transition;
+            path{
+                fill:$light;
+            }
+            g.mark path{
+                fill:$primary;
+            }
+            g{
+                @extend %default-transition;
+                overflow:hidden;
+                max-width:200px;
+            }
+        }
+    }
+    div.prospect-logo{
+        display:inline-block;
+        @include size(28px);
+        position: absolute;
+        @include position(absolute, 2em auto auto 5em);
+        img{
+            width:100%;
+        }
+    }
+    .block{
+        position:relative;
+        height:0px;
+        width:auto;
+        max-width:100%;
+        margin:0 1.5em;
+    }
+}
+
+@media all and(min-width:600px){
+    header.main-header{
+        div.logo{
+            max-width:380px;
+            height:36px;
+            margin-top:5px;
+            top:2.75em;
+            svg{
+                width:380px;
+                height:36px;
+            }
+        }
+        div.prospect-logo{
+            @include size(44px);
+            top:3em;
+        }
+    }
+}
+
+@media all and(min-width:800px){
+    header.main-header{
+        .block{
+            margin:0 50px;
+        }
+    }
+}
+
+body.min-logo header.main-header div.logo{
+    max-width:40px;
+    svg{
+        left:-50px;
+    }
+}
+
+@media all and(min-width:600px){
+    body.min-logo header.main-header div.logo{
+        max-width:40px;
+        svg{
+            left:-120px;
+        }
+    }
+}

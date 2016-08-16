@@ -1,0 +1,35 @@
+a.more{
+    font-size:2em;
+    font-family:$font-headline;
+    color:$dark;
+    @extend %default-transition;
+    svg{
+        width:2em;
+        height:1em;
+        display:inline-block;
+        @include position(relative, 3px auto auto -1px);
+        use{
+            fill:$dark;
+            @extend %default-transition;
+        }
+    }
+    &.previous{
+        svg{
+            @include transform(rotate(180deg));
+        }
+    }
+}
+
+.dark a.more{
+    color:$light;
+    svg use{
+        fill:$light;
+    }
+}
+
+.no-touchevents a.more:hover{
+    color:$primary;
+    svg use{
+        fill:$primary;
+    }
+}

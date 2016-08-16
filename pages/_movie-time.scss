@@ -1,0 +1,24 @@
+body.movie-time{
+    overflow:hidden;
+    cursor: image-url('cursor-close.svg'), auto;
+    header.main-header{
+        opacity:0;
+        top:-30px;
+    }
+    main.main-content{
+        div.content{
+            opacity:0;
+            top:60%;
+        }
+        div.layer-tint{
+            opacity:0;
+        }
+    }
+    *{ pointer-events:none }
+    // TODO - makie it so everything fades out and then video plays
+    // main section *:not(video){
+    //     opacity:0;
+    //     top:60px;
+    //     pointer-events:none;
+    // }
+}

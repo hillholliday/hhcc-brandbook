@@ -1,0 +1,38 @@
+.case-study{
+    header.banner{
+        &:before{
+            @extend %hover-lines;
+            @extend %hover-lines-hover;
+            z-index:1;
+        }
+        .block{
+            z-index:2;
+        }
+        h1{
+            max-width:100%;
+        }         
+    }
+}
+
+a.client-callout{
+    font-size: 1.2em;
+}
+
+section.content.project-summary{
+    padding:2em 10px;
+    div.intro{
+        margin-top:0px;
+    }
+}
+
+@media all and(min-width:800px){
+    section.content.project-summary{
+        padding:4em 0px;
+    }
+}
+
+@media all and(min-width:1100px){
+    section.content.project-summary{
+        padding:6em 0px;
+    }
+}

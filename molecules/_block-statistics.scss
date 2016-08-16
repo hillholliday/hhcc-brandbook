@@ -1,0 +1,42 @@
+// stats block
+section.stats-block{
+    padding:4em 10px;
+    font-family:$font-body;
+    text-align:center;
+    .block{
+        max-width:$block-text;
+    }
+    li{
+        padding-bottom:2em;
+        display:block;
+    }
+    li:last-child{
+        padding-bottom:0px;
+    }
+    span.stat{
+        font-size:5em;
+        font-weight:700;
+        font-family:$font-body-alt;
+        letter-spacing:0.066em;
+    }
+    span.caption{
+        display:block;
+        font-style:italic;
+        padding-top:0.75em;
+        font-size:2em;
+    }
+}
+
+@media all and(min-width:700px){
+    section.stats-block{
+        padding:7em 10px 6em;
+    }
+}
+
+@media all and(min-width:600px){
+    section.stats-block.two-up{
+        span.stat{
+            font-size:6em;
+        }
+    }
+}

@@ -1,0 +1,160 @@
+a.next-link,
+a.prev-link{
+    display:none;
+    width:10em;
+    height:100%;
+    background-color:rgba($primary, 0.65);
+    @include position(absolute, 0px auto 0px 0px);
+    @extend %default-transition;
+    z-index:4;
+    opacity:0;
+    svg{
+        @include position(absolute, 50% auto auto 50%);
+        margin-left: -1.65em;
+        margin-top: -1.65em;
+        @include size(3.3em);
+        use{
+            fill:$light;
+        }
+    }
+}
+
+a.next-link{
+    left:auto;
+    right:0px;
+}
+
+.no-touchevents{
+    a.next-link,
+    a.prev-link{
+        display:block;
+        &:hover{
+            opacity:1;
+            width:6em;
+        }
+    }
+    a.show.next-link,
+    a.show.prev-link{
+        opacity:1;
+    }
+}
+
+
+div.employee-list{
+    position:relative;
+}
+
+ul.employee-list{
+    @include clearfix();
+    li{
+        display:block;
+        background-color:$dark;
+        background-size:cover;
+        background-position:center;
+        position:relative;
+        width:50%;
+        float:left;
+        &:before,
+        &:after{
+            @extend %psuedo-content;
+            padding-top:100%;
+        }
+        &:after{
+            @include position(absolute, 0px 0px 0px 0px);
+            background-color:rgba($dark,0);
+            @extend %default-transition;
+            z-index:1;
+            pointer-events:none;
+        }
+        a{
+            @include position(absolute, 0px 0px 0px 0px);
+        }
+        div{
+            @include position(absolute, auto 1em 1em 1em);
+            z-index:2;
+            opacity:0;
+            @extend %default-transition;
+        }
+        svg{
+            width:2em;
+            height:1em;
+            display:inline-block;
+            use{
+                fill:$light;
+                @extend %default-transition;
+            }
+        }
+        h4,span{
+            color:$light;
+            @extend %default-transition;
+        }
+        h4{
+            word-spacing:1000px;
+            padding-bottom:0.33em;
+        }
+        span{
+            font-size:1.5em;
+            font-style:italic;
+            line-height:1.33;
+        }
+    }
+}
+
+ul.employee-list li:hover,
+ul.employee-list li.active{
+    &:after{
+        background-color:rgba($dark,0.75);
+    }
+    div{
+        opacity:1;
+    }
+    a h4{
+        color:$primary;
+    }
+    svg use{fill:$primary};
+}
+
+@media all and(min-width:500px){
+    ul.employee-list{
+        li{
+            width:33.33;
+        }
+    }
+}
+
+@media all and(min-width:650px){
+    ul.employee-list{
+        li{
+            width:25%;
+            div{
+                right:2em;
+                bottom:2em;
+                left:2em;
+            }
+        }
+    }
+}
+
+@media all and(min-width:800px){
+    ul.employee-list{
+        li{
+            width:20%;
+        }
+    }
+}
+
+@media all and(min-width:1000px){
+    ul.employee-list{
+        li{
+            width:16.666666667%;
+        }
+    }
+}
+
+@media all and(min-width:1600px){
+    ul.employee-list{
+        li{
+            width:10%;
+        }
+    }
+}

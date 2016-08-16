@@ -1,0 +1,140 @@
+footer.main-footer{
+    text-align:center;
+    background-color:$light;
+    @include clearfix();
+    @include transition(opacity 0 1 linear);
+    section.info,
+    section.contact{
+        padding:6em 0px;
+    }
+    section.info{
+        background-color:$accent;
+    }
+    section.meta{
+        padding:3em 10px;
+    }
+    section.info{
+        span{
+            font-size:6em;
+            font-weight:100;
+            font-family:$font-body;
+            letter-spacing:-0.015em;
+        }
+        p{
+            font-style:italic;
+            margin-bottom:0.5em;
+        }
+        li{
+            margin-bottom:3em;
+            display:block;
+            &:last-child{
+                margin-bottom:0px;
+            }
+        }
+    }
+
+    section.contact{
+        @include display(flex);
+        @include flex-direction(column);
+        div:first-child{
+            @include order(2);
+        }
+        div:nth-child(2){
+            @include order(1);
+        }
+        div:last-child{
+            @include order(3);
+        }
+        div{
+            margin-bottom:3em;
+        }
+        p{
+            display:block;
+            margin:1.25em 0;
+        }
+        svg.footer-logo{
+            max-width:270px;
+            margin:0 auto;
+            display:block;
+        }
+        h2{
+            position:relative;
+            left:0.33em;
+            max-width:80%;
+            margin:0 auto;
+        }
+    }
+
+    section.meta{
+        border-top:2px solid $accent;
+        a.cta{
+            display:block;
+            width:243px;
+            margin:0 auto;
+            font-size:16px;
+        }
+        div.social{
+            text-align:center;
+        }
+    }
+}
+
+//TODO change this to ems
+@media all and(min-width:700px){
+    footer.main-footer{
+        section.info{
+            padding:8em 0 6em;
+            ul{
+                @include outer-container();
+            }
+            li{
+                @include span-columns(2.4);
+                margin-bottom:0px;
+            }
+            li.factsheet{
+                position:relative;
+                top:1em;
+                a{
+                    margin-top:1em;
+                    display:block;
+                }
+            }
+        }
+        
+        section.contact{
+            @include outer-container();
+            display:block;
+            div{
+                @include span-columns(4);
+                margin-bottom:0px;
+            }
+            div.location{
+                @include position(relative, 3.5em auto auto auto);
+            }
+            h2{
+                max-width:100%;
+            }
+        }
+
+        section.meta{
+            div.block{
+                @include outer-container();
+                div{
+                    @include span-columns(4);
+                }
+                div.social{
+                    margin:0px;
+                }
+                div:last-of-type p{
+                    padding-left:3em;
+                }
+                div:last-of-type,
+                div.social{
+                    text-align:center;
+                    position:relative;
+                    top:1.25em;
+                }
+            }
+        }
+    }
+}

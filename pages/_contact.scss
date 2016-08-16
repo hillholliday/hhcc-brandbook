@@ -1,0 +1,19 @@
+section.main-contacts{
+    header.banner.people-banner{
+        margin-top:0px;
+    }
+}
+
+@media all and(min-width:800px){
+    section.main-contacts{
+        header.banner.people-banner{
+            margin-bottom:1em;
+            h1{
+                font-size:3.5em;
+            }
+            img{
+                margin:0 auto -2em;
+            }
+        }
+    }
+}

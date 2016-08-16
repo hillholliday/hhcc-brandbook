@@ -1,0 +1,53 @@
+.culture-detail{
+    section.content{
+        margin-bottom:2em;
+    }
+    .content{
+        padding:0 10px;
+    }
+}
+
+.culture-news,
+.culture-employees{
+    ul{
+        margin:0 auto;
+        max-width:$block-text;
+    }
+    a.more{
+        text-align:center;
+        width:100%;
+        display:block;
+        font-size:3em;
+        margin:2.5em 0 1em
+    }
+}
+
+.culture-employees{
+    padding-bottom:6em;
+}
+
+@media all and(min-width:800px){
+    .culture-employees{
+        padding-bottom:8em;
+    }
+}
+
+@media all and(min-width:800px){
+    .culture-news{
+        .figure-list{
+            max-width:$block-text;
+            margin:0 auto;
+        }
+        .figure-list div.news-item{
+            width:33.33%;
+        }
+    }
+    .culture-employees{
+        a.more{
+            font-size:2em;
+        }
+    }
+    .culture-employees ul.employee-list li{
+        width:25%;
+    }
+}

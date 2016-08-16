@@ -1,0 +1,37 @@
+section.apply{
+    padding:4em 10px;
+    border-top:1px solid $accent;
+    border-bottom:1px solid $accent;
+    .block{
+        max-width:$block-text;
+        @include display(flex);
+        @include flex-flow(column);
+    }
+    a.more.previous{
+        @include order(2);
+        text-align:center;
+        width:100%;
+    }
+    a.cta{
+        display:block;
+        max-width:240px;
+        width:100%;
+        margin:0 auto 2em;
+        text-align:center;
+        @include order(1);
+    }
+}
+
+@media all and(min-width:500px){
+    section.apply{
+        position:relative;
+        padding:6em 10px;
+        .block{
+            @include display(block);
+        }
+        a.cta{
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%));
+        }
+    }
+}

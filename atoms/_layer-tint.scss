@@ -1,0 +1,10 @@
+div.layer-tint{
+    @include position(absolute, 0px 0px 0px 0px);
+    z-index:1;
+    background-color:rgba(#000,0.33);
+    opacity:0;
+    @extend %default-transition;
+    &.active{
+        opacity:1;
+    }
+}

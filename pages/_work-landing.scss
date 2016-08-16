@@ -1,0 +1,13 @@
+main.work-page{
+    ul.client-list{
+        padding-bottom:4em;
+    }
+}
+
+@media all and(min-width:700px){
+    main.work-page{
+        ul.client-list{
+            padding-bottom:8em;
+        }
+    }
+}

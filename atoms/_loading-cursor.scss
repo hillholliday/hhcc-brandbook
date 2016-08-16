@@ -1,0 +1,34 @@
+div.loading-cursor{
+    @include size(30px);
+    display:block;
+    position:absolute;
+    @include transform(translate3d(-50%,-50%,0));
+    //@include transform-origin(50%);
+    background-size:cover;
+    background-repeat:no-repeat;
+    z-index:9999;
+    cursor:none;
+    //@include transition(all 0.1s linear);
+    svg{
+        width:100%;
+        height:100%;
+        @include transform-origin(50%);
+        @include animation(spin 0.665s linear infinite);
+        use{
+            fill:$primary;
+        }
+    }
+}
+
+.touchevents{
+    div.loading-cursor{
+        top:7em;
+        left:50%;
+    }
+}
+
+@media all and(min-width:700px){
+    div.loading-cursor{
+        @include size(46px);
+    }
+}

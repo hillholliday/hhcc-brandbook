@@ -1,0 +1,17 @@
+button.inline-button{
+    @include appearance(none);
+    border:none;
+    background-color:transparent;
+    margin:0px;
+    padding:0px;
+    font-size:1em;
+}
+
+.no-touchevents button{
+    svg.icon-play use{
+        @extend %default-transition;
+    }
+    &:hover svg.icon-play use{
+        fill:$primary;
+    }
+}
